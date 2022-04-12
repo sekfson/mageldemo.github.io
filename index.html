@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="data/TERRESINAPTES_1.js"></script>
+        <script src="data/TERRESPEUAPTES_2.js"></script>
+        <script src="data/TERRESMOYENNEMENTSAPTES_3.js"></script>
+        <script src="data/TERRESAPTES_4.js"></script>
+        <script src="data/ch_lieux_pref_28N_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[6.6114083749718,-17.760144271290805],[14.04886635904506,-2.9608908147687996]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OpenStreetMap_0');
+        map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OpenStreetMap_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_TERRESINAPTES_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Apti_Agro'] !== null ? autolinker.link(feature.properties['Apti_Agro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TERRESINAPTES_1_0() {
+            return {
+                pane: 'pane_TERRESINAPTES_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,169,165,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_TERRESINAPTES_1');
+        map.getPane('pane_TERRESINAPTES_1').style.zIndex = 401;
+        map.getPane('pane_TERRESINAPTES_1').style['mix-blend-mode'] = 'normal';
+        var layer_TERRESINAPTES_1 = new L.geoJson(json_TERRESINAPTES_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TERRESINAPTES_1',
+            layerName: 'layer_TERRESINAPTES_1',
+            pane: 'pane_TERRESINAPTES_1',
+            onEachFeature: pop_TERRESINAPTES_1,
+            style: style_TERRESINAPTES_1_0,
+        });
+        bounds_group.addLayer(layer_TERRESINAPTES_1);
+        map.addLayer(layer_TERRESINAPTES_1);
+        function pop_TERRESPEUAPTES_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Apti_Agro'] !== null ? autolinker.link(feature.properties['Apti_Agro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TERRESPEUAPTES_2_0() {
+            return {
+                pane: 'pane_TERRESPEUAPTES_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_TERRESPEUAPTES_2');
+        map.getPane('pane_TERRESPEUAPTES_2').style.zIndex = 402;
+        map.getPane('pane_TERRESPEUAPTES_2').style['mix-blend-mode'] = 'normal';
+        var layer_TERRESPEUAPTES_2 = new L.geoJson(json_TERRESPEUAPTES_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TERRESPEUAPTES_2',
+            layerName: 'layer_TERRESPEUAPTES_2',
+            pane: 'pane_TERRESPEUAPTES_2',
+            onEachFeature: pop_TERRESPEUAPTES_2,
+            style: style_TERRESPEUAPTES_2_0,
+        });
+        bounds_group.addLayer(layer_TERRESPEUAPTES_2);
+        map.addLayer(layer_TERRESPEUAPTES_2);
+        function pop_TERRESMOYENNEMENTSAPTES_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Apti_Agro'] !== null ? autolinker.link(feature.properties['Apti_Agro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TERRESMOYENNEMENTSAPTES_3_0() {
+            return {
+                pane: 'pane_TERRESMOYENNEMENTSAPTES_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_TERRESMOYENNEMENTSAPTES_3');
+        map.getPane('pane_TERRESMOYENNEMENTSAPTES_3').style.zIndex = 403;
+        map.getPane('pane_TERRESMOYENNEMENTSAPTES_3').style['mix-blend-mode'] = 'normal';
+        var layer_TERRESMOYENNEMENTSAPTES_3 = new L.geoJson(json_TERRESMOYENNEMENTSAPTES_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TERRESMOYENNEMENTSAPTES_3',
+            layerName: 'layer_TERRESMOYENNEMENTSAPTES_3',
+            pane: 'pane_TERRESMOYENNEMENTSAPTES_3',
+            onEachFeature: pop_TERRESMOYENNEMENTSAPTES_3,
+            style: style_TERRESMOYENNEMENTSAPTES_3_0,
+        });
+        bounds_group.addLayer(layer_TERRESMOYENNEMENTSAPTES_3);
+        map.addLayer(layer_TERRESMOYENNEMENTSAPTES_3);
+        function pop_TERRESAPTES_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Apti_Agro'] !== null ? autolinker.link(feature.properties['Apti_Agro'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TERRESAPTES_4_0() {
+            return {
+                pane: 'pane_TERRESAPTES_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(28,255,36,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_TERRESAPTES_4');
+        map.getPane('pane_TERRESAPTES_4').style.zIndex = 404;
+        map.getPane('pane_TERRESAPTES_4').style['mix-blend-mode'] = 'normal';
+        var layer_TERRESAPTES_4 = new L.geoJson(json_TERRESAPTES_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_TERRESAPTES_4',
+            layerName: 'layer_TERRESAPTES_4',
+            pane: 'pane_TERRESAPTES_4',
+            onEachFeature: pop_TERRESAPTES_4,
+            style: style_TERRESAPTES_4_0,
+        });
+        bounds_group.addLayer(layer_TERRESAPTES_4);
+        map.addLayer(layer_TERRESAPTES_4);
+        function pop_ch_lieux_pref_28N_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Noms'] !== null ? autolinker.link(feature.properties['Noms'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Villetype'] !== null ? autolinker.link(feature.properties['Villetype'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['index'] !== null ? autolinker.link(feature.properties['index'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ch_lieux_pref_28N_5_0() {
+            return {
+                pane: 'pane_ch_lieux_pref_28N_5',
+                radius: 3.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_ch_lieux_pref_28N_5');
+        map.getPane('pane_ch_lieux_pref_28N_5').style.zIndex = 405;
+        map.getPane('pane_ch_lieux_pref_28N_5').style['mix-blend-mode'] = 'normal';
+        var layer_ch_lieux_pref_28N_5 = new L.geoJson(json_ch_lieux_pref_28N_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ch_lieux_pref_28N_5',
+            layerName: 'layer_ch_lieux_pref_28N_5',
+            pane: 'pane_ch_lieux_pref_28N_5',
+            onEachFeature: pop_ch_lieux_pref_28N_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_ch_lieux_pref_28N_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ch_lieux_pref_28N_5);
+        map.addLayer(layer_ch_lieux_pref_28N_5);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/ch_lieux_pref_28N_5.png" /> ch_lieux_pref_28N': layer_ch_lieux_pref_28N_5,'<img src="legend/TERRESAPTES_4.png" /> TERRES APTES': layer_TERRESAPTES_4,'<img src="legend/TERRESMOYENNEMENTSAPTES_3.png" /> TERRES MOYENNEMENTS APTES': layer_TERRESMOYENNEMENTSAPTES_3,'<img src="legend/TERRESPEUAPTES_2.png" /> TERRES PEU APTES': layer_TERRESPEUAPTES_2,'<img src="legend/TERRESINAPTES_1.png" /> TERRES INAPTES': layer_TERRESINAPTES_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_ch_lieux_pref_28N_5.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Noms'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Noms']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ch_lieux_pref_28N_5'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_ch_lieux_pref_28N_5]);
+        map.on("zoomend", function(){
+            resetLabels([layer_ch_lieux_pref_28N_5]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_ch_lieux_pref_28N_5]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_ch_lieux_pref_28N_5]);
+        });
+        </script>
+    </body>
+</html>
